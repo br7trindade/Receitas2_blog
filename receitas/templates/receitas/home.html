@@ -2,7 +2,7 @@
 
 {% block title %} Home - Minhas Receitas {% endblock %}
 
-{% blovk content %}
+{% block content %}
 
 <!-- Seção de Pesquisa -->
 
@@ -22,8 +22,8 @@
             <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
                 {% for receita in receitas %}   
                 <h3 class="text-xl font-bold mb-2 text-gray-800">{{receita.title}}</h3>
-                {% if receita image %}
-                <img src="{% 'receitas/img/bolo.png ' %}" alt="Imagem de {{ receita.title }}" class="w-full h-48 object-cover rounded-md mb-4">
+                {% if receita.image %}
+                <img src="{{receitas.image.url }}" alt="Imagem de {{ receita.title }}" class="w-full h-48 object-cover rounded-md mb-4">
                  {% endif %}
                 <p class="text-gray-600 mb-4">{{ receita.description|truncatewords:20}}</p>
 
@@ -37,7 +37,7 @@
 
              {% endfor %}
         </div>
-        
+
              {% endblock %}
     
     <footer class="mt-12 p-6 text-center text-gray-600">
