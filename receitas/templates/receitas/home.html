@@ -24,43 +24,22 @@
                 <h3 class="text-xl font-bold mb-2 text-gray-800">{{receita.title}}</h3>
                 {% if receita image %}
                 <img src="{% 'receitas/img/bolo.png ' %}" alt="Imagem de {{ receita.title }}" class="w-full h-48 object-cover rounded-md mb-4">
-                 
+                 {% endif %}
                 <p class="text-gray-600 mb-4">{{ receita.description|truncatewords:20}}</p>
 
-                <a href="{% url 'receita_detail' id=1 %}" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-full transition-colors duration-300                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ">Ver Receita &rarr;</a>
+                <a href="{% url 'receita_detail' id=1 %}" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-full transition-colors duration-300">
+                    Ver Receita &rarr;
+                </a>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ">Ver Receita &rarr;</a>
             </div>
-            <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                <h3 class="text-xl font-bold mb-2 text-gray-800">Frango Assado com Ervas</h3>
-                <img src="{% static 'receitas/img/frango.png' %}" alt="Imagem do bolo de chocolate" class="w-full h-48 object-cover rounded-md mb-4">
-                <p class="text-gray-600 mb-4">Uma receita simples e saborosa de frango assado com um toque de ervas frescas.</p>
-                <a href="{% url 'receita_detail' id=2 %}" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
-            </div>
-            <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                <h3 class="text-xl font-bold mb-2 text-gray-800">Salada Mediterrânea Fresca</h3>
-                <img src="{% static 'receitas/img/salada.png' %}" alt="Imagem do bolo de chocolate" class="w-full h-48 object-cover rounded-md mb-4">
-                <p class="text-gray-600 mb-4">Uma salada leve e refrescante, cheia de sabores do Mediterrâneo.</p>
-                <a href="{% url 'receita_detail' id=3 %}" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
-            </div>
-            <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                <h3 class="text-xl font-bold mb-2 text-gray-800">Torta de Limão Cremosa</h3>
-                <img src="{% static 'receitas/img/torta.png' %}" alt="Imagem do bolo de chocolate" class="w-full h-48 object-cover rounded-md mb-4">
-                <p class="text-gray-600 mb-4">Uma torta clássica com recheio de limão azedinho e merengue tostado.</p>
-                <a href="{% url 'receita_detail' id=4 %}" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
-            </div>
-            <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                <h3 class="text-xl font-bold mb-2 text-gray-800">Sopa de Legumes Nutritiva</h3>
-                <img src="{% static 'receitas/img/vegetal.png' %}" alt="Imagem do bolo de chocolate" class="w-full h-48 object-cover rounded-md mb-4">
-                <p class="text-gray-600 mb-4">Uma sopa reconfortante e cheia de vegetais frescos, perfeita para dias frios.</p>
-                <a href="{% url 'receita_detail' id=5 %}" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
-            </div>
-            <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                <h3 class="text-xl font-bold mb-2 text-gray-800">Risoto de Cogumelos Selvagens</h3>
-                <img src="{% static 'receitas/img/risoto.png' %}" alt="Imagem do bolo de chocolate" class="w-full h-48 object-cover rounded-md mb-4">
-                <p class="text-gray-600 mb-4">Um risoto cremoso e aromático, com uma mistura rica de cogumelos selvagens.</p>
-                <a href="{% url 'receita_detail' id=6 %}" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
-            </div>
+            {% empty %}
+
+             <p class="text-center text-gray-500 col-span-full">Nenhuma receita encontrada</p>
+
+             {% endfor %}
         </div>
-    </main>
+        
+             {% endblock %}
+    
     <footer class="mt-12 p-6 text-center text-gray-600">
         <p>&copy; 2025 Minhas Receitas. Todos os direitos reservados a Bruno Borges.</p>
     </footer>
